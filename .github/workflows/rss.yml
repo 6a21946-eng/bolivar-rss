@@ -21,7 +21,8 @@ jobs:
         run: pip install requests beautifulsoup4 || true
 
       - name: Run RSS generator
-        run: python $GITHUB_WORKSPACE/generate_rss.py
+        working-directory: ${{ github.workspace }}
+        run: python generate_rss.py
 
       - name: Commit and push RSS
         run: |
